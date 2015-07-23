@@ -22,10 +22,20 @@ app.controller('StoreController', function() {
 var gem = [
     {
         name: 'Dodecahedron',
-        price: 2.95,
+        price: 2,
         description: '. . . .',
         canPurchase: false,
         soldOut: false,
+        images: [
+            {
+                full: "dodecahedron-01-full.png",
+                thumbnail: "dodecahedron-01-thumb.jpg"
+            },
+            {   
+                full: "dodecahedron-02-full.jpg",
+                thumbnail: "dodecahedron-02-thumb.jpg"
+            }
+        ]
     },
     {
         name: 'Pentagonal',
@@ -33,6 +43,17 @@ var gem = [
         description: ". . . .",
         canPurchase: true,
         soldOut: false,
+        images: [
+            {
+                full: "pentagonal-01-full.png",
+                thumbnail: "dodecahedron-01-thumb.jpg"
+            },
+            {   
+                full: "dodecahedron-02-full.jpg",
+                thumbnail: "dodecahedron-02-thumb.jpg"
+            }
+        ]
+
     }
 ];
 
