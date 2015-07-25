@@ -1,0 +1,32 @@
+{{product.name}} 
+<em class="pull-right">{{product.price | currency}}</em>
+                    <img ng-src="{{product.images[0].full}}" width="42"/>
+
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b>Stars: {{review.stars}}</b>
+                        {{review.body}}
+                        <cite>by: {{review.author}}</cite>
+                    </blockquote>
+
+                    <form name="reviewForm" ng-controller="ReviewController as reviewController" ng-submit="reviewForm.$valid && reviewController.addReview(product)" novalidate>
+                        <blockquote>
+                            <b>Stars: {{reviewController.review.stars}}</b>
+                            {{reviewController.review.body}}
+                            <cite>by: {{reviewController.review.author}}</cite>
+                        </blockquote>
+                        <select ng-model="reviewController.review.stars" required>
+                            <option value="1">1 Star</option>
+                            <option value="2">2 Star</option>
+                            <option value="3">3 Star</option>
+                            <option value="4">4 Star</option>
+                            <option value="5">5 Star</option>
+                        </select>
+                        <textarea ng-model="reviewController.review.body" required></textarea>
+                        <label>by:</label>
+                        <input ng-model="reviewController.review.author" type="email" required />
+                        
+                        <div> reviewForm is {{reviewForm.$valid}} </div>
+
+                        <input type="submit" value="Submit" />
+                    </form>
+
