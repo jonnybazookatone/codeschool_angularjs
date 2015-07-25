@@ -35,6 +35,13 @@ var gem = [
                 full: "dodecahedron-02-full.jpg",
                 thumbnail: "dodecahedron-02-thumb.jpg"
             }
+        ],
+        reviews: [
+            {
+                stars: 5,
+                body: "My opinion!",
+                author: "joe@thomas.com"
+            }
         ]
     },
     {
@@ -52,9 +59,39 @@ var gem = [
                 full: "dodecahedron-02-full.jpg",
                 thumbnail: "dodecahedron-02-thumb.jpg"
             }
+        ],
+        reviews: [
+            {
+                stars: 5,
+                body: "My opinion!",
+                author: "joe@thomas.com"
+            }
         ]
-
     }
 ];
+
+app.controller("PanelController", function () {
+    this.tab = 1;
+
+    console.log(this.tab);
+    this.selectTab = function(setTab) {
+        console.log('set Tab ' + setTab);
+        this.tab = setTab;
+    };
+
+    this.isSelected = function(checkTab){
+        console.log(checkTab == this.tab);
+        return checkTab === this.tab;
+    };
+});
+
+app.controller("ReviewController", function () {
+    this.review = {};
+
+    this.addReview = function(product) {
+       product.reviews.push(this.review);
+       this.review = {};
+    };
+});
 
 })();
